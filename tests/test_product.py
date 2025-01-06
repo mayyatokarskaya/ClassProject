@@ -1,4 +1,3 @@
-
 def test_product_init(product):
     assert product.name == "Xiaomi Redmi Note 11"
     assert product.description == "1024GB, Синий"

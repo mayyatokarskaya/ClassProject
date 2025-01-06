@@ -29,5 +29,13 @@ def second_category():
     )
 
 @pytest.fixture
+def third_category():
+    return Category(
+        name = "Телевизоры",
+        description = "Современные телевизоры",
+        products = [])
+
+
+@pytest.fixture
 def product():
     return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
