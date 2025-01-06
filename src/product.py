@@ -12,7 +12,4 @@ class Product:
         self.quantity = quantity
 
 
-if __name__ == "__main__":
-    product = Product("car", "red car", 1234.5, 2)
 
-    print(product.name)
