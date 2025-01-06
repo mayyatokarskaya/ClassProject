@@ -3,5 +3,3 @@ def test_product_init(product):
     assert product.description == "1024GB, Синий"
     assert product.price == 31000.0
     assert product.quantity == 14
-
-

@@ -1,8 +1,8 @@
 class Product:
-    name:str
-    description:str
-    price:float
-    quantity:int
+    name: str
+    description: str
+    price: float
+    quantity: int
 
     def __init__(self, name, description, price, quantity):
         """Инициализируем класс Product"""
@@ -11,6 +11,3 @@ class Product:
         self.description = description
         self.price = price
         self.quantity = quantity
-
-
-
