@@ -1,6 +1,5 @@
 import json
 import os
-from itertools import product
 
 from src.product import Product
 from src.category import Category
@@ -24,8 +23,6 @@ def create_object_from_json(data):
         ranks.append(Category(**rank))
 
     return ranks
-
-
 
 
 if __name__ == "__main__":

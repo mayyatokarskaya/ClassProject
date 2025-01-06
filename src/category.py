@@ -1,5 +1,3 @@
-from src.product import Product
-
 class Category:
     name: str
     description: str
@@ -8,6 +6,7 @@ class Category:
     product_count = 0
 
     def __init__(self, name, description, products=None):
+        """инициализируем класс Category"""
 
         self.name = name
         self.description = description
