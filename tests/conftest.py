@@ -8,7 +8,7 @@ from src.product import Product
 def first_category():
     return Category(
         name="Смартфоны",
-        description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        description="Смартфоны, как средство  получения дополнительных функций для удобства жизни",
         products=[
             Product(
                 "Samsung Galaxy S23 Ultra",
@@ -25,7 +25,7 @@ def first_category():
 def second_category():
     return Category(
         name="Смартфоны",
-        description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        description="Смартфоны, как средство получения дополнительных функций для удобства жизни",
         products=[
             Product(
                 "Samsung Galaxy S23 Ultra",
