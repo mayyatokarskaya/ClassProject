@@ -22,6 +22,6 @@ class Category:
     @property
     def products(self):
         """Геттер для просмотра списка товаров"""
-        return "\n".join([f"{product['name']}, {product['price']} руб. Остаток: {product['stock']} шт."
+        return "\n".join([f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
              for product in self.__products])
 
