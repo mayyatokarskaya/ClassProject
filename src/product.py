@@ -37,6 +37,3 @@ class Product:
         quantity = product_data.get("quantity", 0)
 
         return cls(name, description, price, quantity)
-
-
-
