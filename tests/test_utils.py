@@ -20,8 +20,8 @@ def test_read_json():
     # Проверка первой категории
     assert data[0]["name"] == "Смартфоны"
     assert (
-            data[0]["description"]
-            == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
+        data[0]["description"]
+        == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
     )
     assert len(data[0]["products"]) == 3
 
@@ -31,8 +31,8 @@ def test_read_json():
 
     assert data[1]["name"] == "Телевизоры"
     assert (
-            data[1]["description"]
-            == "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
+        data[1]["description"]
+        == "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
     )
     assert len(data[1]["products"]) == 1
 
@@ -57,8 +57,8 @@ def test_create_object_from_json():
     assert isinstance(category1, Category)
     assert category1.name == "Смартфоны"
     assert (
-            category1.description
-            == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
+        category1.description
+        == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
     )
 
     products_str = category1.products
@@ -70,8 +70,8 @@ def test_create_object_from_json():
     assert isinstance(category2, Category)
     assert category2.name == "Телевизоры"
     assert (
-            category2.description
-            == "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
+        category2.description
+        == "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником"
     )
 
     products_str = category2.products
