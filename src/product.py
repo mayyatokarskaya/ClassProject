@@ -21,9 +21,7 @@ class Product:
         if isinstance(other, Product):
             return (self.price * self.quantity) + (other.price * other.quantity)
         else:
-            raise TypeError ("ОБъект не из класса Product")
-
-
+            raise TypeError("ОБъект не из класса Product")
 
     @property
     def price(self):
@@ -50,4 +48,3 @@ class Product:
         quantity = product_data.get("quantity", 0)
 
         return cls(name, description, price, quantity)
-

@@ -1,6 +1,7 @@
 from src.category_iterator import CategoryIterator
 from src.product import Product
 
+
 class Category:
     name: str
     description: str
@@ -40,5 +41,3 @@ class Category:
     def products(self):
         """Геттер для просмотра списка товаров"""
         return "\n".join([str(product) for product in self.__products])
-
-
