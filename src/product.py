@@ -12,6 +12,11 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+
     @property
     def price(self):
         """Геттер для получения значения цены"""
@@ -37,3 +42,8 @@ class Product:
         quantity = product_data.get("quantity", 0)
 
         return cls(name, description, price, quantity)
+
+
+#     # Пример использования
+# product = Product("Телевизор", "4K OLED", 80000.0, 15)
+# print(product)  # Вывод: Телевизор, 80000.0 руб. Остаток
