@@ -67,7 +67,7 @@ def test_category_init(first_category, second_category):
     assert first_category.category_count == 2
     assert second_category.category_count == 2
     assert (
-        first_category.product_count == 4
+            first_category.product_count == 4
     )  # Общее количество товаров в двух категориях
     assert second_category.product_count == 4
 
@@ -88,7 +88,7 @@ def test_add_product(first_category):
     )
     first_category.add_product(new_product)
     assert (
-        len(first_category.products.split("\n")) == 3
+            len(first_category.products.split("\n")) == 3
     )  # Количество товаров увеличилось
     assert first_category.product_count == 3  # Общее количество товаров увеличилось
 
@@ -111,6 +111,7 @@ def test_product_count(first_category, second_category, third_category):
     """Тест классового атрибута product_count."""
     assert Category.product_count == 4  # Общее количество товаров в двух категориях
 
+
 def test_category_str(first_category):
     """Тест магического метода __str__."""
     expected_output = "Смартфоны, количество штук: 19 шт."
@@ -122,14 +123,18 @@ def test_get_products_list(first_category):
     products = first_category.get_products_list()
     assert isinstance(products, list)  # Проверяем, что возвращается список
     assert len(products) == 2  # Проверяем количество товаров
-    assert all(isinstance(product, Product) for product in products)  # Все элементы — объекты Product
+    assert all(
+        isinstance(product, Product) for product in products
+    )  # Все элементы — объекты Product
 
 
 def test_category_iteration(first_category):
     """Тест итерации по категории."""
     products = list(first_category)  # Преобразуем итератор в список
     assert len(products) == 2  # Проверяем количество товаров
-    assert all(isinstance(product, Product) for product in products)  # Все элементы — объекты Product
+    assert all(
+        isinstance(product, Product) for product in products
+    )  # Все элементы — объекты Product
     assert products[0].name == "Xiaomi Redmi Note 11"
     assert products[1].name == "Samsung Galaxy S21"
 
@@ -138,7 +143,9 @@ def test_add_invalid_product(first_category):
     """Тест добавления некорректного товара."""
     invalid_product = "Не продукт"
     first_category.add_product(invalid_product)
-    assert len(first_category.get_products_list()) == 2  # Количество товаров не изменилось
+    assert (
+            len(first_category.get_products_list()) == 2
+    )  # Количество товаров не изменилось
     assert first_category.product_count == 2  # Общее количество товаров не изменилось
 
 
@@ -153,6 +160,10 @@ def test_class_attributes():
     # Проверяем классовые атрибуты
     assert Category.category_count == 2
     assert Category.product_count == 2
+
+    # Проверяем атрибуты второй категории
+    assert category2.name == "Смартфоны"
+    assert category2.description == "Смартфоны для удобства жизни"
 
     # Добавляем товар в одну из категорий
     product3 = Product("Ноутбук", "16GB RAM", 75000.0, 3)
