@@ -110,3 +110,53 @@ def test_category_count(first_category, second_category, third_category):
 def test_product_count(first_category, second_category, third_category):
     """Тест классового атрибута product_count."""
     assert Category.product_count == 4  # Общее количество товаров в двух категориях
+
+def test_category_str(first_category):
+    """Тест магического метода __str__."""
+    expected_output = "Смартфоны, количество штук: 19 шт."
+    assert str(first_category) == expected_output
+
+
+def test_get_products_list(first_category):
+    """Тест метода get_products_list."""
+    products = first_category.get_products_list()
+    assert isinstance(products, list)  # Проверяем, что возвращается список
+    assert len(products) == 2  # Проверяем количество товаров
+    assert all(isinstance(product, Product) for product in products)  # Все элементы — объекты Product
+
+
+def test_category_iteration(first_category):
+    """Тест итерации по категории."""
+    products = list(first_category)  # Преобразуем итератор в список
+    assert len(products) == 2  # Проверяем количество товаров
+    assert all(isinstance(product, Product) for product in products)  # Все элементы — объекты Product
+    assert products[0].name == "Xiaomi Redmi Note 11"
+    assert products[1].name == "Samsung Galaxy S21"
+
+
+def test_add_invalid_product(first_category):
+    """Тест добавления некорректного товара."""
+    invalid_product = "Не продукт"
+    first_category.add_product(invalid_product)
+    assert len(first_category.get_products_list()) == 2  # Количество товаров не изменилось
+    assert first_category.product_count == 2  # Общее количество товаров не изменилось
+
+
+def test_class_attributes():
+    """Тест классовых атрибутов category_count и product_count."""
+    # Создаем две категории с товарами
+    product1 = Product("Телевизор", "4K OLED", 100000.0, 5)
+    product2 = Product("Смартфон", "128GB", 50000.0, 10)
+    category1 = Category("Электроника", "Техника для дома", [product1])
+    category2 = Category("Смартфоны", "Смартфоны для удобства жизни", [product2])
+
+    # Проверяем классовые атрибуты
+    assert Category.category_count == 2
+    assert Category.product_count == 2
+
+    # Добавляем товар в одну из категорий
+    product3 = Product("Ноутбук", "16GB RAM", 75000.0, 3)
+    category1.add_product(product3)
+
+    # Проверяем обновленные классовые атрибуты
+    assert Category.product_count == 3
