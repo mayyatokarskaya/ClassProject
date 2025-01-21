@@ -1,6 +1,5 @@
 from src.product import Product
 
-
 class Category:
     name: str
     description: str
@@ -17,6 +16,13 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        total_quantity = 0
+        for product in self.__products:
+            total_quantity += product.quantity
+        return f"{self.name}, количество штук: {total_quantity} шт."
+
     def add_product(self, product):
         """Метод добавления товаров в категорию"""
         if isinstance(product, Product):
@@ -28,9 +34,7 @@ class Category:
     @property
     def products(self):
         """Геттер для просмотра списка товаров"""
-        return "\n".join(
-            [
-                f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
-                for product in self.__products
-            ]
-        )
+        return "\n".join([str(product) for product in self.__products])
+
+
+
