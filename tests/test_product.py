@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -77,3 +79,32 @@ class TestProduct:
         assert product.description == ""  # Значение по умолчанию
         assert product.price == 0.0  # Значение по умолчанию
         assert product.quantity == 0  # Значение по умолчанию
+
+    def test_product_str(self):
+        """Тест магического метода __str__."""
+        product = Product(
+            name="Телевизор", description="4K OLED", price=100000.0, quantity=5
+        )
+        expected_output = "Телевизор, 100000.0 руб. Остаток: 5 шт."
+        assert str(product) == expected_output
+
+    def test_product_add_valid(self):
+        """Тест магического метода __add__ с корректными объектами."""
+        product1 = Product(
+            name="Телевизор", description="4K OLED", price=100000.0, quantity=2
+        )
+        product2 = Product(
+            name="Смартфон", description="128GB", price=50000.0, quantity=3
+        )
+        total_value = product1 + product2
+        assert total_value == (100000.0 * 2) + (50000.0 * 3)
+
+    def test_product_add_invalid(self):
+        """Тест магического метода __add__ с некорректным объектом."""
+        product = Product(
+            name="Телевизор", description="4K OLED", price=100000.0, quantity=2
+        )
+        invalid_object = "Не продукт"
+
+        with pytest.raises(TypeError, match="ОБъект не из класса Product"):
+            product + invalid_object
