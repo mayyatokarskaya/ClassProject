@@ -16,6 +16,14 @@ class Product:
         """Магический метод для строкового представления объекта"""
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
+    def __add__(self, other):
+        """Магический метод для сложения двух объектов класса"""
+        if isinstance(other, Product):
+            return (self.price * self.quantity) + (other.price * other.quantity)
+        else:
+            raise TypeError ("ОБъект не из класса Product")
+
+
 
     @property
     def price(self):
@@ -43,7 +51,3 @@ class Product:
 
         return cls(name, description, price, quantity)
 
-
-#     # Пример использования
-# product = Product("Телевизор", "4K OLED", 80000.0, 15)
-# print(product)  # Вывод: Телевизор, 80000.0 руб. Остаток
