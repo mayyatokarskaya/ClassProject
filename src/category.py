@@ -41,3 +41,7 @@ class Category:
     def products(self):
         """Геттер для просмотра списка товаров"""
         return "\n".join([str(product) for product in self.__products])
+
+    def get_products_list(self):
+        """Метод для получения списка товаров (объектов Product)"""
+        return self.__products
