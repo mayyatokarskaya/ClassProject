@@ -1,3 +1,4 @@
+from src.category_iterator import CategoryIterator
 from src.product import Product
 
 class Category:
@@ -31,10 +32,13 @@ class Category:
         else:
             print("Ошибка: можно добавлять только объекты класса Product.")
 
+    def __iter__(self):
+        """Магический метод для поддержки итерации"""
+        return CategoryIterator(self)
+
     @property
     def products(self):
         """Геттер для просмотра списка товаров"""
         return "\n".join([str(product) for product in self.__products])
-
 
 
