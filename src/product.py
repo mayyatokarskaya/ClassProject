@@ -18,10 +18,9 @@ class Product:
 
     def __add__(self, other):
         """Магический метод для сложения двух объектов класса"""
-        if isinstance(other, Product):
-            return (self.price * self.quantity) + (other.price * other.quantity)
-        else:
-            raise TypeError("ОБъект не из класса Product")
+        if type(self) != type(other):
+            raise TypeError("Нельзя складывать товары разных классов")
+        return (self.price * self.quantity) + (other.price * other.quantity)
 
     @property
     def price(self):
