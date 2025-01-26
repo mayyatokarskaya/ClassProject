@@ -31,7 +31,7 @@ class Product:
     def price(self, value):
         """Сеттер для установки значения цены с проверкой"""
         if value <= 0:
-            print("Цена не должна быть нулевая или отрицательная")
+            raise ValueError("Цена не должна быть нулевая или отрицательная")
         else:
             self.__price = value
 
