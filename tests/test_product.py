@@ -106,5 +106,5 @@ class TestProduct:
         )
         invalid_object = "Не продукт"
 
-        with pytest.raises(TypeError, match="ОБъект не из класса Product"):
+        with pytest.raises(TypeError, match="Нельзя складывать товары разных классов"):
             product + invalid_object
