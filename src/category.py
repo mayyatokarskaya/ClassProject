@@ -31,7 +31,7 @@ class Category:
             self.__products.append(product)
             Category.product_count += 1
         else:
-            print("Ошибка: можно добавлять только объекты класса Product.")
+            raise TypeError("Можно добавлять только объекты класса Product или его наследников")
 
     def __iter__(self):
         """Магический метод для поддержки итерации"""
