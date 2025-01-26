@@ -65,4 +65,3 @@ def smartphone_valid():
         memory=128,
         color="Синий",
     )
-
