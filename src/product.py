@@ -18,7 +18,7 @@ class Product:
 
     def __add__(self, other):
         """Магический метод для сложения двух объектов класса"""
-        if type(self) != type(other):
+        if type(self) != type(other):  # noqa: E721
             raise TypeError("Нельзя складывать товары разных классов")
         return (self.price * self.quantity) + (other.price * other.quantity)
 
