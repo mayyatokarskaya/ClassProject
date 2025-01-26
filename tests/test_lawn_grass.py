@@ -29,5 +29,7 @@ def test_lawngrass_price_update(lawn_grass):
     lawn_grass.price = 1800.0
     assert lawn_grass.price == 1800.0
 
-    with pytest.raises(ValueError, match="Цена не должна быть нулевая или отрицательная"):
+    with pytest.raises(
+        ValueError, match="Цена не должна быть нулевая или отрицательная"
+    ):
         lawn_grass.price = -500.0
