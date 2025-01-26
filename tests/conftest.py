@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.lawn_grass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
 
@@ -64,4 +65,18 @@ def smartphone_valid():
         model="A2634",
         memory=128,
         color="Синий",
+    )
+
+
+@pytest.fixture
+def lawn_grass():
+    """Фикстура для создания объекта LawnGrass."""
+    return LawnGrass(
+        name="Premium Grass",
+        description="Смесь трав для газона",
+        price=1500.0,
+        quantity=10,
+        country="Нидерланды",
+        germination_period="7-10 дней",
+        color="Зеленый",
     )
