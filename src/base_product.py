@@ -8,6 +8,7 @@ class BaseProduct(ABC):
         self.description = description
         self.price = price
         self.quantity = quantity
+        super().__init__()
 
     @classmethod
     @abstractmethod
