@@ -43,7 +43,7 @@ class Product(BaseProduct, PrintMixin):
 
         name = product_data.get("name", "")
         description = product_data.get("description", "")
-        price = product_data.get("price", 0.0)
+        price = product_data.get("price", 1.0)
         quantity = product_data.get("quantity", 0)
 
         return cls(name, description, price, quantity)

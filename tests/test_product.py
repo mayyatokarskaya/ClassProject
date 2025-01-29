@@ -83,7 +83,7 @@ class TestProduct:
         product = Product.new_product()
         assert product.name == ""  # Значение по умолчанию
         assert product.description == ""  # Значение по умолчанию
-        assert product.price == 0.0  # Значение по умолчанию
+        assert product.price == 1.0  # Значение по умолчанию
         assert product.quantity == 0  # Значение по умолчанию
 
     def test_product_str(self):
