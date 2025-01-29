@@ -30,7 +30,7 @@ class Product(BaseProduct, PrintMixin):
     @price.setter
     def price(self, value):
         """Сеттер для установки значения цены с проверкой"""
-        if value <= 0:
+        if value is None or value <= 0:
             raise ValueError("Цена не должна быть нулевая или отрицательная")
         else:
             self.__price = value
