@@ -1,4 +1,7 @@
-class Product:
+from src.base_product import BaseProduct
+
+
+class Product(BaseProduct):
     name: str
     description: str
     price: float
@@ -6,11 +9,7 @@ class Product:
 
     def __init__(self, name, description, price, quantity):
         """Инициализируем класс Product"""
-
-        self.name = name
-        self.description = description
-        self.__price = price
-        self.quantity = quantity
+        super().__init__(name, description, price, quantity)
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
