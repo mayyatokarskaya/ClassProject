@@ -8,11 +8,6 @@ class BaseProduct(ABC):
         self.price = price
         self.quantity = quantity
 
-    @abstractmethod
-    def calculate_total_price(self) -> float:
-        """Рассчитывает общую стоимость продукта на складе"""
-        pass
-
     @classmethod
     @abstractmethod
     def new_product(cls, product_data=None):
