@@ -1,18 +1,49 @@
-class Product:
-    name:str
-    description:str
-    price:float
-    quantity:int
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
+    name: str
+    description: str
+    price: float
+    quantity: int
 
     def __init__(self, name, description, price, quantity):
+        """Инициализируем класс Product"""
+        super().__init__(name, description, price, quantity)
 
-        self.name = name
-        self.description = description
-        self.price = price
-        self.quantity = quantity
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
+    def __add__(self, other):
+        """Магический метод для сложения двух объектов класса"""
+        if type(self) != type(other):  # noqa: E721
+            raise TypeError("Нельзя складывать товары разных классов")
+        return (self.price * self.quantity) + (other.price * other.quantity)
 
-if __name__ == "__main__":
-    product = Product("car", "red car", 1234.5, 2)
+    @property
+    def price(self):
+        """Геттер для получения значения цены"""
+        return self.__price
 
-    print(product.name)
+    @price.setter
+    def price(self, value):
+        """Сеттер для установки значения цены с проверкой"""
+        if value is None or value <= 0:
+            raise ValueError("Цена не должна быть нулевая или отрицательная")
+        else:
+            self.__price = value
+
+    @classmethod
+    def new_product(cls, product_data=None):
+        """Класс-метод для создания нового объекта Product из словаря"""
+        if product_data is None:
+            product_data = {}
+
+        name = product_data.get("name", "")
+        description = product_data.get("description", "")
+        price = product_data.get("price", 1.0)
+        quantity = product_data.get("quantity", 1)
+
+        return cls(name, description, price, quantity)
