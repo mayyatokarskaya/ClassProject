@@ -114,3 +114,8 @@ class TestProduct:
 
         with pytest.raises(TypeError, match="Нельзя складывать товары разных классов"):
             product + invalid_object
+
+    def test_create_product_with_zero_quantity(self):
+        """Тест на вызов исключения ValueError при создании продукта с нулевым количеством"""
+        with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+            Product("Бракованный товар", "Неверное количество", 1000.0, 0)
