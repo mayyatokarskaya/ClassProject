@@ -67,7 +67,7 @@ def test_category_init(first_category, second_category):
     assert first_category.category_count == 2
     assert second_category.category_count == 2
     assert (
-        first_category.product_count == 4
+            first_category.product_count == 4
     )  # Общее количество товаров в двух категориях
     assert second_category.product_count == 4
 
@@ -88,7 +88,7 @@ def test_add_product(first_category):
     )
     first_category.add_product(new_product)
     assert (
-        len(first_category.products.split("\n")) == 3
+            len(first_category.products.split("\n")) == 3
     )  # Количество товаров увеличилось
     assert first_category.product_count == 3  # Общее количество товаров увеличилось
 
@@ -143,8 +143,8 @@ def test_add_invalid_product(first_category):
     """Тест добавления некорректного товара."""
     invalid_product = "Не продукт"
     with pytest.raises(
-        TypeError,
-        match="Можно добавлять только объекты класса Product или его наследников",
+            TypeError,
+            match="Можно добавлять только объекты класса Product или его наследников",
     ):
         first_category.add_product(invalid_product)
     assert len(first_category.get_products_list()) == 2
@@ -184,7 +184,36 @@ def test_class_attributes():
 def test_add_none_product(first_category):
     """Тест добавления None в категорию."""
     with pytest.raises(
-        TypeError,
-        match="Можно добавлять только объекты класса Product или его наследников",
+            TypeError,
+            match="Можно добавлять только объекты класса Product или его наследников",
     ):
         first_category.add_product(None)
+
+
+def test_middle_price_with_products():
+    """Проверка вычисления среднего ценника для категории с товарами"""
+    product1 = Product("Товар 1", "Описание 1", 100.0, 10)
+    product2 = Product("Товар 2", "Описание 2", 200.0, 5)
+
+    category = Category("Категория с товарами", "Описание категории")
+    category.add_product(product1)
+    category.add_product(product2)
+
+    assert category.middle_price() == 150.0
+
+
+def test_middle_price_with_no_products():
+    """Проверка, что метод middle_price возвращает 0, если в категории нет товаров"""
+    category = Category("Пустая категория", "Описание пустой категории")
+
+    assert category.middle_price() == 0
+
+
+def test_middle_price_with_single_product():
+    """Проверка вычисления среднего ценника для категории с одним товаром"""
+    product = Product("Товар", "Описание", 150.0, 1)
+
+    category = Category("Категория с одним товаром", "Описание категории")
+    category.add_product(product)
+
+    assert category.middle_price() == 150.0
