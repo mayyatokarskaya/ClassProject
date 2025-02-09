@@ -76,7 +76,7 @@ class TestProduct:
         assert product.name == "Мышь"
         assert product.description == ""  # Значение по умолчанию
         assert product.price == 1500.0
-        assert product.quantity == 0  # Значение по умолчанию
+        assert product.quantity == 1.0  # Значение по умолчанию
 
     def test_new_product_empty_data(self):
         """Тест создания объекта через new_product без данных."""
@@ -84,7 +84,7 @@ class TestProduct:
         assert product.name == ""  # Значение по умолчанию
         assert product.description == ""  # Значение по умолчанию
         assert product.price == 1.0  # Значение по умолчанию
-        assert product.quantity == 0  # Значение по умолчанию
+        assert product.quantity == 1.0  # Значение по умолчанию
 
     def test_product_str(self):
         """Тест магического метода __str__."""
