@@ -39,7 +39,7 @@ class TestProduct:
             name="Телевизор", description="4K OLED", price=100000.0, quantity=5
         )
         with pytest.raises(
-                ValueError, match="Цена не должна быть нулевая или отрицательная"
+            ValueError, match="Цена не должна быть нулевая или отрицательная"
         ):
             product.price = -5000  # Попытка установить цену 0 должна вызвать исключение
         assert product.price == 100000.0  # Цена не должна измениться
@@ -50,7 +50,7 @@ class TestProduct:
             name="Телевизор", description="4K OLED", price=100000.0, quantity=5
         )
         with pytest.raises(
-                ValueError, match="Цена не должна быть нулевая или отрицательная"
+            ValueError, match="Цена не должна быть нулевая или отрицательная"
         ):
             product.price = 0  # Попытка установить цену 0 должна вызвать исключение
         assert product.price == 100000.0  # Цена не должна измениться
@@ -117,5 +117,7 @@ class TestProduct:
 
     def test_create_product_with_zero_quantity(self):
         """Тест на вызов исключения ValueError при создании продукта с нулевым количеством"""
-        with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        with pytest.raises(
+            ValueError, match="Товар с нулевым количеством не может быть добавлен"
+        ):
             Product("Бракованный товар", "Неверное количество", 1000.0, 0)

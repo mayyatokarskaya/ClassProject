@@ -67,7 +67,7 @@ def test_category_init(first_category, second_category):
     assert first_category.category_count == 2
     assert second_category.category_count == 2
     assert (
-            first_category.product_count == 4
+        first_category.product_count == 4
     )  # Общее количество товаров в двух категориях
     assert second_category.product_count == 4
 
@@ -88,7 +88,7 @@ def test_add_product(first_category):
     )
     first_category.add_product(new_product)
     assert (
-            len(first_category.products.split("\n")) == 3
+        len(first_category.products.split("\n")) == 3
     )  # Количество товаров увеличилось
     assert first_category.product_count == 3  # Общее количество товаров увеличилось
 
@@ -143,8 +143,8 @@ def test_add_invalid_product(first_category):
     """Тест добавления некорректного товара."""
     invalid_product = "Не продукт"
     with pytest.raises(
-            TypeError,
-            match="Можно добавлять только объекты класса Product или его наследников",
+        TypeError,
+        match="Можно добавлять только объекты класса Product или его наследников",
     ):
         first_category.add_product(invalid_product)
     assert len(first_category.get_products_list()) == 2
@@ -184,8 +184,8 @@ def test_class_attributes():
 def test_add_none_product(first_category):
     """Тест добавления None в категорию."""
     with pytest.raises(
-            TypeError,
-            match="Можно добавлять только объекты класса Product или его наследников",
+        TypeError,
+        match="Можно добавлять только объекты класса Product или его наследников",
     ):
         first_category.add_product(None)
 

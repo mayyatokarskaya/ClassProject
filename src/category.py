@@ -56,4 +56,3 @@ class Category:
             return average_price
         except ZeroDivisionError:
             return 0
-
