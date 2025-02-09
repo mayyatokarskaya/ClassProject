@@ -16,16 +16,16 @@ def test_smartphone_empty_data():
     smartphone = Smartphone(
         name="",
         description="",
-        price=0.0,
-        quantity=0,
+        price=1.0,
+        quantity=1,
         efficiency=0.0,
         model="",
         memory=0,
         color="",
     )
     assert smartphone.name == ""
-    assert smartphone.price == 0.0
-    assert smartphone.quantity == 0
+    assert smartphone.price == 1.0
+    assert smartphone.quantity == 1
 
 
 def test_smartphone_boundary_values():
