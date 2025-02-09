@@ -47,3 +47,13 @@ class Category:
     def get_products_list(self):
         """Метод для получения списка товаров (объектов Product)"""
         return self.__products
+
+    def middle_price(self):
+        """Метод для подсчета среднего ценника всех товаров в категории"""
+        try:
+            total_price = sum(product.price for product in self.__products)
+            average_price = total_price / len(self.__products)
+            return average_price
+        except ZeroDivisionError:
+            return 0
+
